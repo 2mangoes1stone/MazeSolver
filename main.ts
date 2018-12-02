@@ -1,6 +1,7 @@
 class MazeSolver {
-  private grid;
+
   private mazeFillerElement = `<span class="o">o</span>`;
+  private grid;
 
   constructor() {}
 
@@ -54,7 +55,6 @@ class MazeSolver {
 
     if (this.grid[row][column + 1] === 'F') {
       console.log('solved');
-      return this.grid;
     } else if (canTraverse && row > 0 && column > 0) {
       this.grid[row][column] = this.mazeFillerElement;
       this.printOutput(row, column);

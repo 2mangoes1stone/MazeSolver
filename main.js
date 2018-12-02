@@ -42,7 +42,6 @@ var MazeSolver = /** @class */ (function () {
         var canTraverse = this.grid[row][column] !== '#';
         if (this.grid[row][column + 1] === 'F') {
             console.log('solved');
-            return this.grid;
         }
         else if (canTraverse && row > 0 && column > 0) {
             this.grid[row][column] = this.mazeFillerElement;
