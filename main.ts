@@ -53,7 +53,7 @@ class MazeSolver {
   private traverse(row, column): void {
     const canTraverse = this.grid[row][column] !== '#';
 
-    if (this.isFinish(row, column)) {
+    if (this.isMazeEnd(row, column)) {
       console.log('solved');
     } else if (canTraverse && row > 0 && column > 0) {
       this.grid[row][column] = this.mazeFillerElement;
@@ -83,7 +83,7 @@ class MazeSolver {
     }
   }
 
-  private isFinish(row, column): boolean {
+  private isMazeEnd(row: number, column: number): boolean {
     return (
       this.grid[row][column + 1] === 'F' ||
       this.grid[row][column - 1] === 'F' ||
