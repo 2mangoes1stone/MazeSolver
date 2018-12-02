@@ -40,7 +40,7 @@ var MazeSolver = /** @class */ (function () {
     };
     MazeSolver.prototype.traverse = function (row, column) {
         var canTraverse = this.grid[row][column] !== '#';
-        if (this.grid[row][column + 1] === 'F') {
+        if (this.isFinish(row, column)) {
             console.log('solved');
         }
         else if (canTraverse && row > 0 && column > 0) {
@@ -70,6 +70,12 @@ var MazeSolver = /** @class */ (function () {
             solutionElem.innerHTML = this.printMaze();
             this.traverse(row, column - 1);
         }
+    };
+    MazeSolver.prototype.isFinish = function (row, column) {
+        return (this.grid[row][column + 1] === 'F' ||
+            this.grid[row][column - 1] === 'F' ||
+            this.grid[row + 1][column] === 'F' ||
+            this.grid[row - 1][column] === 'F');
     };
     MazeSolver.prototype.canMoveUp = function (row, column) {
         return this.grid[row - 1][column] !== '#' && this.grid[row - 1][column] !== this.mazeFillerElement;

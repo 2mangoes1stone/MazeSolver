@@ -53,7 +53,7 @@ class MazeSolver {
   private traverse(row, column): void {
     const canTraverse = this.grid[row][column] !== '#';
 
-    if (this.grid[row][column + 1] === 'F') {
+    if (this.isFinish(row, column)) {
       console.log('solved');
     } else if (canTraverse && row > 0 && column > 0) {
       this.grid[row][column] = this.mazeFillerElement;
@@ -81,6 +81,15 @@ class MazeSolver {
       solutionElem.innerHTML = this.printMaze();
       this.traverse(row, column - 1)
     }
+  }
+
+  private isFinish(row, column): boolean {
+    return (
+      this.grid[row][column + 1] === 'F' ||
+      this.grid[row][column - 1] === 'F' ||
+      this.grid[row + 1][column] === 'F' ||
+      this.grid[row - 1][column] === 'F'
+    );
   }
 
   private canMoveUp(row: number, column: number): boolean {
