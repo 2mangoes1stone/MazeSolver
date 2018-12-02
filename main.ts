@@ -25,7 +25,7 @@ class MazeSolver {
     return grid;
   }
   
-  private printMaze() {
+  private printMaze(): string {
     return this.grid.map(grid => `${grid.join('')}\n`).join('');
   }
 
