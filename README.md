@@ -4,6 +4,4 @@
 
 ### Written in TypeScript because TypeScript is awesome 🤓
 
-This program is already compiled to JS to run in the browser. Simple clone this repo and run `maze.html` on your browser to view the solution.
-
-To view the code, please open the `main.ts` file as `main.js` is the compiled version and might read like prehistoric code  🤔
+To run the program simply `npm i -g typescript` and then `tsc main.ts` to compile. Then run `maze.html` in your browser to view the solution.
